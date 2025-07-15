@@ -1,9 +1,11 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   "obsidian-nvim/obsidian.nvim",
   -- the obsidian vault in this default config  ~/obsidian-vault
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
   -- event = { "bufreadpre " .. vim.fn.expand "~" .. "/my-vault/**.md" },
-  event = { "BufReadPre  */wtlau-obsidian/*.md" },
+  -- event = { "BufReadPre  */wtlau-obsidian/*.md" },
+  event = { "bufreadpre " .. vim.fn.expand "~" .. "/wtlau-obsidian/**.md" },
 
   dependencies = {
     "nvim-lua/plenary.nvim",
