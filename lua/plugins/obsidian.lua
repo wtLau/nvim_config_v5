@@ -5,7 +5,7 @@ return {
   lazy = true,
   ft = "markdown",
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
-  event = { "bufreadpre " .. vim.fn.expand "~" .. "/wtlau-obsidian/**.md" },
+  -- event = { "bufreadpre " .. vim.fn.expand "~" .. "/wtlau-obsidian/**.md" },
   -- event = { "BufReadPre  */wtlau-obsidian/*.md" },
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -30,6 +30,16 @@ return {
     },
   },
   opts = {
+    workspaces = {
+      {
+        name = "personal",
+        path = "~/Documents/wtlau-obsidian/",
+      },
+      {
+        name = "work",
+        path = "~/Documents/wtlau-obsidian/notes/work",
+      },
+    },
     dir = vim.env.HOME .. "/Documents/wtlau-obsidian", -- specify the vault location. no need to call 'vim.fn.expand' here
 
     templates = {
@@ -60,10 +70,6 @@ return {
       nvim_cmp = false,
       -- Enables completion using blink.cmp
       blink = true,
-      -- Trigger completion at 2 chars.
-      min_chars = 2,
-      -- Set to false to disable new note creation in the picker
-      create_new = true,
     },
 
     -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
