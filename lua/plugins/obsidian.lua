@@ -1,6 +1,6 @@
 return {
   "obsidian-nvim/obsidian.nvim",
-  version = "*", --  use latest release 
+  version = "*", --  use latest release
   lazy = true,
   ft = "markdown",
   ---@module 'obsidian'
@@ -13,7 +13,7 @@ return {
       },
       {
         name = "work",
-        path = "~/Documents/wtlau-obsidian/notes/work",
+        path = "~/Documents/arc-obsidian/",
       },
     },
     dir = vim.env.HOME .. "/Documents/wtlau-obsidian", -- vault location
@@ -43,8 +43,17 @@ return {
       -- E.g. like 'my-new-note-1657296016'
       local prefix = ""
       if title ~= nil then
-        -- If title is given, transform it into valid file name.
-        prefix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+        -- Extract first 4 words
+        local first4 = {}
+        for word in title:gmatch "%S+" do
+          first4[#first4 + 1] = word
+          if #first4 == 4 then break end
+        end
+
+        local short = table.concat(first4, " ")
+
+        -- Transform into valid file name
+        prefix = short:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
       else
         -- If prefix is nil, just add 4 random uppercase letters to the suffix.
         for _ = 1, 4 do
