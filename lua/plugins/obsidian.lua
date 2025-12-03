@@ -39,29 +39,29 @@ return {
     -- Optional, customize how note IDs are generated given an optional title.
     ---@param title string|?
     ---@return string
-    note_id_func = function(title)
-      -- E.g. like 'my-new-note-1657296016'
-      local prefix = ""
-      if title ~= nil then
-        -- Extract first 4 words
-        local first4 = {}
-        for word in title:gmatch "%S+" do
-          first4[#first4 + 1] = word
-          if #first4 == 4 then break end
-        end
-
-        local short = table.concat(first4, " ")
-
-        -- Transform into valid file name
-        prefix = short:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
-      else
-        -- If prefix is nil, just add 4 random uppercase letters to the suffix.
-        for _ = 1, 4 do
-          prefix = prefix .. string.char(math.random(65, 90))
-        end
-      end
-      return prefix .. "-" .. tostring(os.time())
-    end,
+    -- note_id_func = function(title)
+    --   -- E.g. like 'my-new-note-1657296016'
+    --   local prefix = ""
+    --   if title ~= nil then
+    --     -- Extract first 4 words
+    --     local first4 = {}
+    --     for word in title:gmatch "%S+" do
+    --       first4[#first4 + 1] = word
+    --       if #first4 == 4 then break end
+    --     end
+    --
+    --     local short = table.concat(first4, " ")
+    --
+    --     -- Transform into valid file name
+    --     prefix = short:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+    --   else
+    --     -- If prefix is nil, just add 4 random uppercase letters to the suffix.
+    --     for _ = 1, 4 do
+    --       prefix = prefix .. string.char(math.random(65, 90))
+    --     end
+    --   end
+    --   return prefix .. "-" .. tostring(os.time())
+    -- end,
 
     -- Optional, alternatively you can customize the frontmatter data.
     ---@return table
