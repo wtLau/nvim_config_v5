@@ -35,6 +35,11 @@ return {
       blink = true,
     },
     preferred_link_style = "wiki",
+    checkbox = {
+      enabled = true,
+      create_new = true,
+      order = { " ", "x" },
+    },
 
     -- Optional, customize how note IDs are generated given an optional title.
     ---@param title string|?
