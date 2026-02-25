@@ -7,9 +7,10 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.recipes.ai" },
-  -- import/override with your plugins folder
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.biome" },
+  { import = "astrocommunity.pack.prettier" },
   { import = "astrocommunity.pack.json" },
 }
