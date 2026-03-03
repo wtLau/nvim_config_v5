@@ -1,8 +1,7 @@
 return {
   "obsidian-nvim/obsidian.nvim",
   -- version = "*", --  use latest release
-  version = "3.14.8", --  Dec 17, 2025
-
+  version = "3.14.7", --  Dec 17, 2025
   lazy = true,
   ft = "markdown",
   ---@module 'obsidian'
