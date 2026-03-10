@@ -5,7 +5,7 @@ return {
   opts = {
     -- Optionally add 'dictionary', or 'thesaurus' to default sources
     sources = {
-      default = { "lsp", "path", "lazydev" },
+      default = { "lsp", "path", "lazydev", "thesaurus" },
       providers = {
 
         -- Use the thesaurus source
@@ -17,6 +17,7 @@ return {
             -- A score offset applied to returned items.
             -- By default the highest score is 0 (item 1 has a score of -1, item 2 of -2 etc..).
             score_offset = 0,
+            dictionary_search_threshold = 4,
 
             -- Default pointers define the lexical relations listed under each definition,
             -- see Pointer Symbols below.
@@ -30,7 +31,7 @@ return {
 
             -- The depth of similar words to recurse when collecting synonyms. 1 is similar words,
             -- 2 is similar words of similar words, etc. Increasing this may slow results.
-            similarity_depth = 2,
+            similarity_depth = 1,
           },
         },
 
